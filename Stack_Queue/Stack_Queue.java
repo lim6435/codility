@@ -209,6 +209,7 @@ public class Stack_Queue {
         int weight = 10;
 //        int[] truck_weights = {10,10,10,10,10,10,10,10};
         int[] truck_weights = {7,4,5,6};
+        nAnswer = sq.solution(bridge_length, weight, truck_weights);
         nAnswer = sq.solution1(bridge_length, weight, truck_weights);
         System.out.println("solution3 answer is : " + nAnswer);
 
