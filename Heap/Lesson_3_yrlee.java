@@ -16,7 +16,6 @@ public class Lesson_3_yrlee {
 
     public static int[] lesson3(String[] operations) {
         int[] answer = new int[2];
-        List<String> operationsList = new ArrayList<>(Arrays.asList(operations));
         ArrayList<Integer> itemList = new ArrayList<>();
         Arrays.stream(operations)
                 .forEach(item -> {
