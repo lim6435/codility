@@ -23,10 +23,11 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
             targetArray.push_back(array[startIdx+i]);
         }
         sort(targetArray.begin(),targetArray.end(), compare);
-        
+        /*
         for(int i = 0 ; i < length ; ++i){
             printf("%d ", targetArray[i]);
         }
+        */
         answer.push_back(targetArray[targetIdx]);
          
     }
