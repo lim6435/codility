@@ -14,6 +14,7 @@ public class Lesson_5_yrlee {
 //        int[] answers = {1,2,5,5,2};
 //        int[] answers = {1, 1, 1, 5, 2};
 //        int[] answers = {5,4,4,2,1};
+
         int[] lesson1 = lesson1(answers);
         System.out.println("lesson1====================");
         Arrays.stream(lesson1).forEach(System.out::println);
