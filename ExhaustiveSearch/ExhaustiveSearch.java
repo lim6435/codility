@@ -8,6 +8,8 @@ import java.util.List;
 
 public class ExhaustiveSearch {
 
+    private int nAnswer;
+
     public int[] solution(int[] answers) {
         int[] answer = {};
         int[] arrFirst = {1,2,3,4,5};
@@ -39,7 +41,43 @@ public class ExhaustiveSearch {
     public int solution(String numbers) {
         int answer = 0;
         char[] arrChar = numbers.toCharArray();
+        int[] combArr = new int[arrChar.length];
+
+        for(int i = 1; i <= arrChar.length; i++)
+            doCombination(combArr, arrChar.length, i, 0, 0, arrChar);
+
         return answer;
+    }
+
+    public void doCombination(int[] combArr, int n, int r, int index, int target, char[] arr){
+//        System.out.println( " n : " + n + " r : " + r + " index : " + index + " target : " + target);
+        if(r == 0){
+            StringBuffer sb = new StringBuffer();
+            for(int i=0; i<index; i++) {
+//                System.out.print(arr[combArr[i]] + " ");
+                sb.append(arr[combArr[i]]);
+            }
+            System.out.println("sb : " + sb);
+            if(bPrimeNumber(Integer.parseInt(sb.toString()))) {
+                nAnswer++;
+            }
+            System.out.println("nAnswer : " + nAnswer);
+        }else if(target == n) return;
+        else{
+
+            combArr[index] = target;
+            doCombination(combArr, n, r-1, index+1, target+1, arr); // (i)
+            doCombination(combArr, n, r, index, target+1, arr); //(ii)
+        }
+    }
+
+    public boolean bPrimeNumber(int num) {
+        System.out.println("num : " + num);
+        if (num == 1) return false;
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0 && i != num) return false;
+        }
+        return true;
     }
 
     public int[] solution(int brown, int yellow) {
@@ -55,7 +93,7 @@ public class ExhaustiveSearch {
 //                continue;
 //            }
             // m 4 , n 3
-            if ( (n >= m) && ((n-2) * (m-2)) == yellow) {
+            if ( (n >= m) && (n * m == nRet) && ((n-2) * (m-2)) == yellow) {
                 System.out.println("n : " + n + " m  " + m + " (n-2) * (n-m) : " + ((n-2) * (m-2)));
                 break;
             } else {
@@ -77,17 +115,22 @@ public class ExhaustiveSearch {
         int[] answers = {1,3,2,4,2};
         int[] result;
         result = es.solution(answers);
-        Arrays.stream(result).forEach(n-> System.out.print(n + " "));
+//        Arrays.stream(result).forEach(n-> System.out.print(n + " "));
+//        System.out.println("");
 
         //solution 2
         String numbers = "17";
+        es.nAnswer = 0;
         int nAnswer = es.solution(numbers);
         System.out.println("solution 2 : " + nAnswer);
 
         //solution 3
         int brown = 24;
         int yellow = 24;
-        result = es.solution(brown, yellow);
-        Arrays.stream(result).forEach(n-> System.out.print(n + " "));
+//        result = es.solution(brown, yellow);
+//        Arrays.stream(result).forEach(n-> System.out.print(n + " "));
+
+//        System.out.println("");
+//        System.out.println("is Prime Number ? : " + es.bPrimeNumber(6));
     }
 }
