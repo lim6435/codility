@@ -7,11 +7,11 @@ using namespace std;
 int solution(vector<int> people, int limit) {
     int answer = 0;
     
-    //peopleÀ» ÀÛÀº ¼øºÎÅÍ Á¤¿­½ÃÅ²´Ù.
+    //peopleì„ ìž‘ì€ ìˆœë¶€í„° ì •ì—´ì‹œí‚¨ë‹¤.
     sort(people.begin(),people.end());
     
     
-    //¹«°Å¿î ÂÊÀ¸·Î °¥¼ö·Ï ¹è°¡ 1¸í¸¸ ³ª¸¦ °¡´É¼ºÀÌ ¸¹±â     //¶§¹®¿¡ °¡Àå ¹«°Å¿î °Å¶û °¡Àå °¡º­¿î°Å¸¦ ´õÇØ¾ß °¡Àå     //È¿À²ÀûÀÏµí
+    //ë¬´ê±°ìš´ ìª½ìœ¼ë¡œ ê°ˆìˆ˜ë¡ ë°°ê°€ 1ëª…ë§Œ ë‚˜ë¥¼ ê°€ëŠ¥ì„±ì´ ë§Žê¸°     //ë•Œë¬¸ì— ê°€ìž¥ ë¬´ê±°ìš´ ê±°ëž‘ ê°€ìž¥ ê°€ë²¼ìš´ê±°ë¥¼ ë”í•´ì•¼ ê°€ìž¥     //íš¨ìœ¨ì ì¼ë“¯
 
     int start_idx=0;
     int end_idx= people.size()-1;
